@@ -1,0 +1,8 @@
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.active-nav {
+  background: #d9d9d9;
+}
