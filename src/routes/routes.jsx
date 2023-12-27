@@ -1,55 +1,49 @@
-import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
-import HomePage from "../pages/HomePage";
-import CreateBlogPage from "./../pages/CreateBlogPage";
+// routes.jsx
+import { createBrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { useAuth } from '@context/AuthContext';
+import App from '../App';
+import HomePage from '../pages/HomePage';
+import CreateBlogPage from '../pages/CreateBlogPage';
+import AdminPanel from '../pages/AdminPanel'; // Assuming you have an AdminPanel component
+import LoginComponent from "../components/LoginComponent"
 
-const routes = createBrowserRouter([
+// Higher-order component for private routes
+const PrivateRoute = ({ element }) => {
+  const { state } = useAuth();
+
+  return state.isAuthenticated ? element : <Navigate to="/login" replace />;
+};
+
+const routesConfig = [
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <HomePage />,
       },
       {
-        path: "/students",
-        element: <div>Student Page</div>,
+        path: '/students',
+        element: <PrivateRoute element={<div>Student Page</div>} />,
       },
       {
-        path: "/create-blog",
-        element: <CreateBlogPage />,
+        path: '/create-blog',
+        element: <PrivateRoute element={<CreateBlogPage />} />,
       },
       {
-        path: "/accounts",
-        element: <div>Account Page</div>,
+        path: '/accounts',
+        element: <PrivateRoute element={<div>Account Page</div>} />,
       },
-      {
-        path: "/address",
-        element: <div>Address Page</div>,
-      },
-      {
-        path: "/documentation",
-        element: <div>Documentation Page</div>,
-      },
-      {
-        path: "/branch",
-        element: <div>Branch Page</div>,
-      },
-      {
-        path: "/video-course",
-        element: <div>Video Course Page</div>,
-      },
-      {
-        path: "/tuition-fee",
-        element: <div>Tuition fee Page</div>,
-      },
-      {
-        path: "/update-session",
-        element: <div>Update Session Page</div>,
-      },
+      // ... other routes
     ],
   },
-]);
+  {
+    path: '/login',
+    element: <LoginComponent />,
+  },
+];
+
+const routes = createBrowserRouter(routesConfig);
 
 export default routes;
