@@ -41,6 +41,9 @@ const SideBar = () => {
     {
       name: "Update session",
       path: "/update-session",
+    }, {
+      name: "Team Create",
+      path: "/team-create",
     },
   ];
 
