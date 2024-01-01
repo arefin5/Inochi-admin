@@ -32,9 +32,6 @@ const TeamCreate = () => {
         }
     };
 
-
-
-
     const handleSubmit = async () => {
         try {
             const public_id = id.id;

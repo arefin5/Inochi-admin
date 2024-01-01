@@ -7,11 +7,9 @@ import CertificatePreview from '../components/CertificatePreview';
 
 const Home = () => {
   const [certificateData, setCertificateData] = useState(null);
-
   const handleGenerate = (recipientName) => {
     setCertificateData({ recipientName });
   };
-
   return (
     <div div className="d-1" >
       <CertificateForm onGenerate={handleGenerate} />

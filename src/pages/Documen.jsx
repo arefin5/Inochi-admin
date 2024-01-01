@@ -4,44 +4,49 @@ import { useState } from "react";
 import axiosInterceptor from "../axios/axiosInterceptor";
 
 const Documen = () => {
-  const [name, setName] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [alert, setAlert] = useState(null);
-  const [studentNid, setStudentNid] = useState("");
-  const [branch, setBranch] = useState("");
-  const [markSheetSSC, setMarkSheetSSC] = useState(null);
-  const [markSheetHSC, setMarkSheetHSC] = useState(null);
+ 
   const api = axiosInterceptor();
 
   const handleStudent = async (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("studentNid", studentNid);
-    formData.append("branch", branch);
-    formData.append("markSheetSSC", markSheetSSC);
-    formData.append("markSheetHSC", markSheetHSC);
-
+  
     try {
-      const response = await fetch("http://localhost:5000/api/uploadDocument", {
-        method: "POST",
-        body: formData,
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("studentNid", studentNid);
+      formData.append("branch", branch);
+      formData.append("markSheetSSC", markSheetSSC);
+      formData.append("markSheetHSC", markSheetHSC);
+  
+      // Log file inputs
+      console.log("File Inputs:", markSheetSSC, markSheetHSC);
+  
+      const { data } = await api.post("/uploadDocumentstudent", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
-
-      const data = await response.json();
-      setAlert({ type: "success", message: data.message });
+      
+  
+      setAlert({ type: "success" });
     } catch (error) {
-      console.error(error);
+      console.error("Error:",);
       setAlert({ type: "error", message: "Failed to upload document." });
     }
   };
+  
+  
+
+
+
+
 
   return (
     <div>
       {/* ... (previous JSX code) */}
       <div className="col">
-        <form action className="needs-validation" noValidate onSubmit={handleStudent}>
+
+        <form  className="needs-validation" noValidate onSubmit={handleStudent}>
         {/*  */}
         <div className="mb-3 row">
                       <label htmlFor="exampleFormControlInput1" className="form-label col-sm-2 col-form-label">

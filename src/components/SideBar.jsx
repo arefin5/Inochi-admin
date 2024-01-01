@@ -27,6 +27,10 @@ const SideBar = () => {
       path: "/documentation",
     },
     {
+      name: "Create- Quistion",
+      path: "/create-question",
+    },
+    {
       name: "Branch",
       path: "/branch",
     },

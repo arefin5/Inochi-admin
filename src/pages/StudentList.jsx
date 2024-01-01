@@ -4,11 +4,10 @@ import axiosInterceptor from '../axios/axiosInterceptor';
 const StudentList = () => {
   const [students, setStudent] = useState([]);
   const api = axiosInterceptor();
-
+  
   useEffect(() => {
     fetchUserSudent();
   }, []);
-
   const fetchUserSudent = async () => {
     try {
       const { data } = await api.get("/all-student");

@@ -8,8 +8,8 @@ import AdminPanel from '../pages/AdminPanel'; // Assuming you have an AdminPanel
 import LoginComponent from "../components/LoginComponent"
 import StudentList from '../pages/StudentList';
 import Documen from '../pages/Documen';
-import DocumentList from '../pages/DocumentList';
 import TeamCreate from '../pages/TeamCreate';
+import CreateQuestion from "../pages/CreateQuestion"
 // Higher-order component for private routes
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
@@ -32,6 +32,11 @@ const routesConfig = [
 
       },
       {
+        path:"/create-question",
+        element: <PrivateRoute element={<CreateQuestion />} />,
+
+      },
+      {
         path: '/students',
         element: <PrivateRoute element={<StudentList />} />,
       },
@@ -43,6 +48,7 @@ const routesConfig = [
         path: '/accounts',
         element: <PrivateRoute element={<div>Account Page</div>} />,
       },
+
       {
         path: '/documentation',
         element: <PrivateRoute element={<Documen/>} />,
@@ -53,9 +59,6 @@ const routesConfig = [
   {
     path: '/login',
     element: <LoginComponent />,
-  },{
-    path:'/documentlist',
-    element: <DocumentList />
   },
 ];
 
