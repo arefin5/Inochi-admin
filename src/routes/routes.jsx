@@ -3,8 +3,7 @@ import { createBrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { useAuth } from '@context/AuthContext';
 import App from '../App';
 import HomePage from '../pages/HomePage';
-import CreateBlogPage from '../pages/CreateBlogPage';
-import AdminPanel from '../pages/AdminPanel'; // Assuming you have an AdminPanel component
+import CreateBlogPage from '../pages/CreateBlogPage'  // Assuming you have an AdminPanel component
 import LoginComponent from "../components/LoginComponent"
 import StudentList from '../pages/StudentList';
 import Documen from '../pages/Documen';
