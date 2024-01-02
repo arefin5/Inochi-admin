@@ -49,6 +49,10 @@ const SideBar = () => {
       name: "Team Create",
       path: "/team-create",
     },
+    {
+      name:"Create Carusel",
+        path:"/create-crusel",
+    }
   ];
 
   return (

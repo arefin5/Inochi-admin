@@ -9,6 +9,7 @@ import StudentList from '../pages/StudentList';
 import Documen from '../pages/Documen';
 import TeamCreate from '../pages/TeamCreate';
 import CreateQuestion from "../pages/CreateQuestion"
+import CreateCarusel from "../pages/CreateCarusel"
 // Higher-order component for private routes
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
@@ -28,6 +29,11 @@ const routesConfig = [
       {
         path:"/team-create",
         element: <PrivateRoute element={<TeamCreate />} />,
+
+      },
+      {
+        path:"/create-crusel",
+        element: <PrivateRoute element={<CreateCarusel />} />,
 
       },
       {
