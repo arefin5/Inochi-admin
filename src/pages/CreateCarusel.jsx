@@ -1,4 +1,3 @@
-"use client"
 import React, { useEffect, useState } from 'react';
 import CreateCaruselTop from '../component/CreateCaruselTop';
 import CaruselPending from '../component/pendingCarusel.jsx';
