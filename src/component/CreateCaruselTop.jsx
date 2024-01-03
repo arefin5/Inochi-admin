@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
-
+import axiosInterceptor from '../axios/axiosInterceptor';
 const CreateCaruselTop = () => {
     const [category, setCategory] = useState('');
     const [image, setImage] = useState({});
     const [uploading, setUploading] = useState(false);
     const [id, setId] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
-
+     const api=axiosInterceptor();
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
         let formData = new FormData();
@@ -33,7 +33,7 @@ const CreateCaruselTop = () => {
     const handleSubmit = async () => {
         try {
             const public_id = id.id;
-            const { data } = await axios.post("/create-carusel", {
+            const { data } = await api.post("/create-carusel", {
                 public_id,
                 category,
             });
@@ -52,7 +52,6 @@ const CreateCaruselTop = () => {
             <select value={category} onChange={handleCategoryChange}>
                 <option value="" disabled>Select a category</option>
                 <option value="top">Top</option>
-                <option value="bottom">Bottom </option>
             </select>
             <label>Image:</label>
             <input type="file" onChange={handleImageChange}
