@@ -9,7 +9,8 @@ import StudentList from '../pages/StudentList';
 import Documen from '../pages/Documen';
 import TeamCreate from '../pages/TeamCreate';
 import CreateQuestion from "../pages/CreateQuestion"
-import CreateCarusel from "../pages/CreateCarusel"
+import CreateCarusel from "../pages/CreateCarusel";
+import CreateService from "../pages/CreateService"
 // Higher-order component for private routes
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
@@ -36,6 +37,11 @@ const routesConfig = [
         element: <PrivateRoute element={<CreateCarusel />} />,
 
       },
+      {
+        path:"/create-service",
+        element:<PrivateRoute element={<CreateService />} />
+      },
+
       {
         path:"/create-question",
         element: <PrivateRoute element={<CreateQuestion />} />,

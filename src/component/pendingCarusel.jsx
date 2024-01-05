@@ -7,7 +7,7 @@ const PendingCarusel = ({ data, handleDelete, handleEdit, handleApprove }) => {
     setStoredBase64Data(data);
   };
 
-  // console.log(data.image.public_id);
+  console.log(data.image.public_id);
 
   return (
     <>

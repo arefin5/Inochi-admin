@@ -1,17 +1,68 @@
 import { useState } from "react";
 
+import axiosInterceptor from '../axios/axiosInterceptor.js';
+
 const CreateBlogPage = () => {
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const [image, setImage] = useState({});
+  const [uploading, setUploading] = useState(false);
+  const [content, setContent] = useState('');
+  const [id, setId] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const api=axiosInterceptor()
+  // const [title, setTitle] = useState("");
+  // const [category, setCategory] = useState("");
+  // const [content, setContent] = useState("");
 
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
+  // const handleCategoryChange = (e) => {
+  //   setCategory(e.target.value);
+  // };
+  // const handleImageChange = (e) => {};
+
+  // const handleSubmit = (e) => {};
+  const handleImageChange = async (e) => {
+    const file = e.target.files[0];
+    let formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
+    try {
+      const { data } = await api.post("/upload", formData);
+      setId({
+        id: data.public_id,
+      });
+      setUploading(false);
+    } catch (err) {
+      console.error('Error uploading image:', err);
+      setUploading(false);
+      setSuccessMessage('');
+      setErrorMessage("Failed to upload image. Please try again.");
+    }
   };
-  const handleImageChange = (e) => {};
 
-  const handleSubmit = (e) => {};
 
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const public_id = id.id;
+      const { data } = await api.post("/create-blog", {
+        public_id,
+        title,
+        content,
+        category,
+      });
+      setSuccessMessage("Blog created successfully!");
+      setErrorMessage(''); // Clear any previous error message
+    } catch (err) {
+      console.error("Error:", err);
+      setSuccessMessage('');
+      setErrorMessage("Failed to create blog. Please try again.");
+    }
+  };
   return (
     <div className="p-4 w-100 d-flex justify-content-center">
       <div className="w-100 d-flex flex-column align-items-center">

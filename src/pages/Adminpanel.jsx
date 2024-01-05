@@ -16,7 +16,7 @@ const AdminPanel = () => {
       .catch((error) => {
         console.error('Error fetching current user:', error);
       });
-      api.get("/review").then((respose)=>{
+      api.get("/review").then((response)=>{
         console.log(response.data)
       });
   }, []);
