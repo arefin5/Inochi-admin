@@ -133,17 +133,15 @@ const api=axiosInterceptor()
 
   return (
     <>
-      {isImageDefined && (
-        <ImageConverter id={data.image.public_id} onBase64Data={handleBase64Data} />
-      )}
-      {storedBase64Data ? (
+     
+      {data ? (
         <div className="my-5">
           <div className="row my-lg-4">
             <div>
               <div className="card shadow rounded">
                 <div className="card-body text-center">
                   <img
-                    src={storedBase64Data}
+                    src={data.image.url}
                     alt="Bootstrap"
                     width={150}
                     height={150}
@@ -155,9 +153,9 @@ const api=axiosInterceptor()
                   <p className="text-center mb-5">
                     <b>{data.category}</b>
                   </p>
-                  <p className="text-center mb-5">
-                    <b>Email: {data.author.email}</b>
-                  </p>
+                  {/* <p className="text-center mb-5">
+                    <b>Email: {data.author}</b>
+                  </p> */}
                   {/* Checkboxes for tags */}
                   <div className="d-flex justify-content-around">
                     <label>

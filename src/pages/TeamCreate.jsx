@@ -13,25 +13,48 @@ const TeamCreate = () => {
     const [teams, setTeams] = useState([]);
 
 
+    // const handleImageChange = async (e) => {
+    //     const file = e.target.files[0];
+    //     let formData = new FormData();
+    //     formData.append("image", file);
+    //     setUploading(true);
+    //     try {
+    //         const { data } = await api.post("/upload", formData);
+    //         setId({
+    //             id: data.public_id,
+    //         });
+    //         setUploading(false);
+    //     } catch (err) {
+    //         console.error('Error uploading image:', err);
+    //         setUploading(false);
+    //         setSuccessMessage('');
+    //         setErrorMessage("Failed to upload image. Please try again.");
+    //     }
+    // };
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
         let formData = new FormData();
         formData.append("image", file);
-        setUploading(true);
+        // setUploading(true);
         try {
-            const { data } = await api.post("/upload", formData);
-            setId({
-                id: data.public_id,
-            });
-            setUploading(false);
+            const response = await axios.post("http://localhost:5000/api/upload-image-file", formData);
+            if (response && response.data && response.data) {
+                setImage({
+                    url: response.data.url,
+                    public_id: response.data.public_id,
+                });
+                setUploading(false);
+                setSuccessMessage('Image uploaded successfully.');
+            } else {
+                setErrorMessage("Failed to upload image. Please try again.");
+            }
         } catch (err) {
             console.error('Error uploading image:', err);
-            setUploading(false);
-            setSuccessMessage('');
             setErrorMessage("Failed to upload image. Please try again.");
+        } finally {
+            setUploading(false);
         }
     };
-
     const handleSubmit = async () => {
         try {
             const public_id = id.id;

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import ImageConverter from './ImageConverter.jsx';
 import axiosInterceptor from '../axios/axiosInterceptor';
 import { useNavigate } from 'react-router-dom';
 
 const TeamCard = ({ data }) => {
-  const [storedBase64Data, setStoredBase64Data] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate();
   const api = axiosInterceptor();
@@ -14,9 +12,7 @@ const TeamCard = ({ data }) => {
     navigate('/team-create');
   }, []);
 
-  const handleBase64Data = (data) => {
-    setStoredBase64Data(data);
-  };
+ 
 
   const handleDelete = async () => {
     // Show confirmation dialog
@@ -71,10 +67,8 @@ const TeamCard = ({ data }) => {
         <tbody>
           <tr>
             <td>
-              <ImageConverter id={data.image.public_id} onBase64Data={handleBase64Data} />
-              {storedBase64Data && (
-                <img src={storedBase64Data} alt="Team Member" width={50} height={50} />
-              )}
+                <img src={data.image.public_id} alt="Team Member" width={50} height={50} />
+              
             </td>
             <td>{data.name}</td>
             <td>{data.designation}</td>

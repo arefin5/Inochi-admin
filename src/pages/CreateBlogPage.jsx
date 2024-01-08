@@ -28,10 +28,11 @@ const CreateBlogPage = () => {
     formData.append("image", file);
     setUploading(true);
     try {
-      const { data } = await api.post("/upload", formData);
-      setId({
-        id: data.public_id,
-      });
+      const { data } = await api.post("/upload-image-file", formData);
+      setImage({
+                url: data.url,
+                public_id:data.public_id,
+              });
       setUploading(false);
     } catch (err) {
       console.error('Error uploading image:', err);
@@ -48,9 +49,8 @@ const CreateBlogPage = () => {
 
   const handleSubmit = async () => {
     try {
-      const public_id = id.id;
       const { data } = await api.post("/create-blog", {
-        public_id,
+        image,
         title,
         content,
         category,
@@ -130,6 +130,7 @@ const CreateBlogPage = () => {
             >
               Submit
             </button>
+            
           </div>
         </div>
       </div>
