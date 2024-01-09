@@ -10,8 +10,8 @@ const TeamCard = ({ data }) => {
   useEffect(() => {
     // Use the state from useAuth to determine authentication status
     navigate('/team-create');
-  }, []);
-
+  }, [navigate]);
+// console.log(data)
  
 
   const handleDelete = async () => {
@@ -67,7 +67,12 @@ const TeamCard = ({ data }) => {
         <tbody>
           <tr>
             <td>
-                <img src={data.image.public_id} alt="Team Member" width={50} height={50} />
+            {
+            data.image ? (<>
+              <img src={data.image.url} alt="Team Member" width={50} height={50} />
+
+            </>):null
+            }
               
             </td>
             <td>{data.name}</td>

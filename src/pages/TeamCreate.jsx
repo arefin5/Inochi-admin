@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import axiosInterceptor from '../axios/axiosInterceptor';
-import TeamCard from "../components/TeamCard.jsx"
+import TeamCard from "../components/TeamCard.jsx";
+import { Avatar, Space } from 'antd';
+import { LoadingOutlined, CameraOutlined } from "@ant-design/icons";
+
 const TeamCreate = () => {
     const [name, setname] = useState("");
     const [designation, setdesignation] = useState("");
@@ -12,32 +15,13 @@ const TeamCreate = () => {
     const api = axiosInterceptor();
     const [teams, setTeams] = useState([]);
 
-
-    // const handleImageChange = async (e) => {
-    //     const file = e.target.files[0];
-    //     let formData = new FormData();
-    //     formData.append("image", file);
-    //     setUploading(true);
-    //     try {
-    //         const { data } = await api.post("/upload", formData);
-    //         setId({
-    //             id: data.public_id,
-    //         });
-    //         setUploading(false);
-    //     } catch (err) {
-    //         console.error('Error uploading image:', err);
-    //         setUploading(false);
-    //         setSuccessMessage('');
-    //         setErrorMessage("Failed to upload image. Please try again.");
-    //     }
-    // };
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
         let formData = new FormData();
         formData.append("image", file);
         // setUploading(true);
         try {
-            const response = await axios.post("http://localhost:5000/api/upload-image-file", formData);
+            const response = await api.post("/upload-image-file", formData);
             if (response && response.data && response.data) {
                 setImage({
                     url: response.data.url,
@@ -56,10 +40,10 @@ const TeamCreate = () => {
         }
     };
     const handleSubmit = async () => {
+
         try {
-            const public_id = id.id;
             const { data } = await api.post("/team-create", {
-                public_id,
+                image,
                 name,
                 designation
             });
@@ -68,9 +52,11 @@ const TeamCreate = () => {
             if (data) {
                 setname(' ');
                 setdesignation(' ');
-                public_id(' ');
                 setSuccessMessage(' ');
-                setErrorMessage(' /')
+                setErrorMessage(' ');
+              setImage(' ')
+                await fetchTeam();
+              
             }
 
         } catch (err) {
@@ -118,7 +104,21 @@ const TeamCreate = () => {
                         />
                     </div>
                     <div className="mb-3">
+
+                    {/*  */}
+                     {/* upload image */}
+            
+                    {/*  */}
                         <label className="form-label">
+                        {/*  */}
+                        {image && image.url ? (
+              <Avatar size={30} src={image.url} className="mt-1" />
+            ) : uploading ? (
+              <LoadingOutlined className="mt-2" />
+            ) : (
+              <CameraOutlined className="mt-2" />
+            )}
+                        {/*  */}
                             Image
                         </label>
                         <input
@@ -145,10 +145,10 @@ const TeamCreate = () => {
                 </div>
                 <p>Team Member</p>
                 {teams && teams.map((team, index) => (
-    <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
-        <TeamCard data={team} />
-    </div>
-))}
+                    <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+                        <TeamCard data={team} />
+                    </div>
+                ))}
             </div>
         </div>
     );

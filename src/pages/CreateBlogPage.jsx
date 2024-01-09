@@ -12,16 +12,7 @@ const CreateBlogPage = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const api=axiosInterceptor()
-  // const [title, setTitle] = useState("");
-  // const [category, setCategory] = useState("");
-  // const [content, setContent] = useState("");
-
-  // const handleCategoryChange = (e) => {
-  //   setCategory(e.target.value);
-  // };
-  // const handleImageChange = (e) => {};
-
-  // const handleSubmit = (e) => {};
+ 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     let formData = new FormData();
@@ -55,8 +46,18 @@ const CreateBlogPage = () => {
         content,
         category,
       });
-      setSuccessMessage("Blog created successfully!");
-      setErrorMessage(''); // Clear any previous error message
+      if(data.erro){
+        setErrorMessage("Failed to create blog. Please try again.");
+        
+      }else{
+        setSuccessMessage("Blog created successfully!");
+        setErrorMessage(''); // Clear any previous error message
+        setImage({});
+        setTitle(' ');
+        setContent(" ");
+        setCategory(' ')
+      }
+      
     } catch (err) {
       console.error("Error:", err);
       setSuccessMessage('');
@@ -67,7 +68,18 @@ const CreateBlogPage = () => {
     <div className="p-4 w-100 d-flex justify-content-center">
       <div className="w-100 d-flex flex-column align-items-center">
         <h3 className="text-center">Create a Blog</h3>
+
         <div className="w-75">
+        {errorMessage && (
+        <div className="alert alert-danger mt-3" role="alert">
+          {errorMessage}
+        </div>
+      )}
+      {successMessage && (
+        <div className="alert alert-success mt-3" role="alert">
+          {successMessage}
+        </div>
+      )}
           <div className="mb-3">
             <label className="form-label">Title</label>
             <input
@@ -134,6 +146,7 @@ const CreateBlogPage = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

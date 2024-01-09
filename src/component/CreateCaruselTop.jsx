@@ -17,28 +17,37 @@ const CreateCaruselTop = () => {
         const file = e.target.files[0];
         let formData = new FormData();
         formData.append("image", file);
-        setUploading(true);
+        // setUploading(true);
         try {
-            const { data } = await api.post("/upload", formData);
-            setId({
-                id: data.public_id,
-            });
-            setUploading(false);
+            const response = await api.post("/upload-image-file", formData);
+            if (response && response.data && response.data) {
+                setImage({
+                    url: response.data.url,
+                    public_id: response.data.public_id,
+                });
+                setUploading(false);
+                setSuccessMessage('Image uploaded successfully.');
+            } else {
+                setErrorMessage("Failed to upload image. Please try again.");
+            }
         } catch (err) {
-            console.error('Error uploading image:')
+            console.error('Error uploading image:', err);
+            setErrorMessage("Failed to upload image. Please try again.");
+        } finally {
             setUploading(false);
         }
     };
+      
 
     const handleCategoryChange = (event) => {
         setCategory(event.target.value);
     };
 
     const handleSubmit = async () => {
+        console.log(image.url)
         try {
-            const public_id = id.id;
             const { data } = await api.post("/create-carusel", {
-                public_id,
+                image,
                 category,
             });
             if (data && data.success) {
@@ -69,7 +78,7 @@ const CreateCaruselTop = () => {
             />
 
             <button onClick={handleSubmit}
-                disabled={!id.id && id.id !== 0}
+                disabled={uploading}
 
             >Submit</button>
             {successMessage && <p>{successMessage}</p>}
