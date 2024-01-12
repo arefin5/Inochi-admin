@@ -1,0 +1,17 @@
+.certificate-container {
+    background-image: url("/public/certificate.png");
+    background-repeat: no-repeat;
+   
+}
+image{
+    height: 40px !important;
+    width: 50px  !important;
+}
+
+
+.te{
+
+
+    height: 300px;
+    width: 300px;
+}

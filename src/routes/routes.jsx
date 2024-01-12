@@ -11,6 +11,7 @@ import TeamCreate from '../pages/TeamCreate';
 import CreateQuestion from "../pages/CreateQuestion"
 import CreateCarusel from "../pages/CreateCarusel";
 import CreateService from "../pages/CreateService"
+import Cert from '../pages/Cert';
 // Higher-order component for private routes
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
@@ -70,6 +71,10 @@ const routesConfig = [
   {
     path: '/login',
     element: <LoginComponent />,
+  },
+  {
+    path: '/cert',
+    element: <Cert />,
   },
 ];
 
