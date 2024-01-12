@@ -14,6 +14,11 @@ const SideBar = () => {
       name: "Create Blog",
       path: "/create-blog",
     },
+    {      name: "Account",
+
+      path:"/accounts",
+
+    },
     {
       name: "Address",
       path: "/address",
