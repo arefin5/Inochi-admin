@@ -1,43 +1,31 @@
 // import React, { useEffect, useState } from 'react';
-// import { Avatar } from 'antd';
+// import { Avatar, Select } from 'antd';
 // import axiosInterceptor from '../axios/axiosInterceptor';
+
+// const { Option } = Select;
 
 // const FreeStudent = () => {
 //   const [students, setStudents] = useState([]);
-//   const [role, setRole] = useState("gust");
-//   const [editMode, setEditMode] = useState({ id: null, field: 'role' });
+//   const [editMode, setEditMode] = useState({ id: null, field: null });
+//   const [userData, setUserData] = useState({ role: "gust", branch: "A" });
 //   const api = axiosInterceptor();
 
-//   useEffect(() => {
-//     fetchUserStudents();
-//   }, []);
-
-//   const fetchUserStudents = async () => {
-//     try {
-//       const { data } = await api.get("/all-guset");
-//       console.log("data users", data);
-//       setStudents(data);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
-
-//   const handleEdit = (id) => {
-//     setEditMode({ id, field: 'role' });
+ 
+//   const handleEdit = (id, field) => {
+//     setEditMode({ id, field });
 //   };
 
 //   const handleCancelEdit = () => {
-//     setEditMode({ id: null, field: 'role' });
+//     setEditMode({ id: null, field: null });
 //   };
 
 //   const handleSaveEdit = async (id, updatedValue) => {
-//     console.log(role)
+//     const endpoint = editMode.field === 'role' ? `/change-role/${id}` : `/change-branch/${id}`;
+
 //     try {
-//       await api.put(`/change-role/${id}`, {
-// role
-//       });
-//       setEditMode({ id: null, field: 'role' });
-//       fetchUserStudents();
+//       await api.put(endpoint, { [editMode.field]: updatedValue });
+//       setEditMode({ id: null, field: null });
+//       // fetchUserStudents();
 //     } catch (error) {
 //       console.error(`Error saving edit for student with id ${id}`, error);
 //     }
@@ -58,6 +46,7 @@
 //             <th scope="col">Father</th>
 //             <th scope="col">Mother</th>
 //             <th scope="col">ClassRole</th>
+//             <th scope="col">Branch</th>
 //             <th scope="col">Role</th>
 //             <th scope="col">Actions</th>
 //           </tr>
@@ -79,11 +68,28 @@
 //               <td>{student.rool}</td>
 //               <td>
 //                 {editMode.id === student._id ? (
-//                   <input
-//                     type="text"
-//                     value={role} // Use the role state here
-//                     onChange={(e) => setRole(e.target.value)}
-//                   />
+//                   <Select
+//                     style={{ width: 120 }}
+//                     value={editMode.field === 'branch' ? student.branch : userData.branch}
+//                     onChange={(value) => setUserData({ ...userData, [editMode.field]: value })}
+//                   >
+//                     <Option value="A">A</Option>
+//                     <Option value="B">B</Option>
+//                   </Select>
+//                 ) : (
+//                   student.branch
+//                 )}
+//               </td>
+//               <td>
+//                 {editMode.id === student._id ? (
+//                   <Select
+//                     style={{ width: 120 }}
+//                     value={userData.role}
+//                     onChange={(value) => setUserData({ ...userData, role: value })}
+//                   >
+//                     <Option value="student">Student</Option>
+//                     <Option value="admin">Admin</Option>
+//                   </Select>
 //                 ) : (
 //                   student.role
 //                 )}
@@ -93,7 +99,7 @@
 //                   <>
 //                     <button
 //                       className="btn btn-success mr-2"
-//                       onClick={() => handleSaveEdit(student._id, role)}
+//                       onClick={() => handleSaveEdit(student._id, userData[editMode.field])}
 //                     >
 //                       Save
 //                     </button>
@@ -107,7 +113,7 @@
 //                 ) : (
 //                   <button
 //                     className="btn btn-primary mr-2"
-//                     onClick={() => handleEdit(student._id)}
+//                     onClick={() => handleEdit(student._id, 'role')}
 //                   >
 //                     Edit Role
 //                   </button>
@@ -122,7 +128,9 @@
 // };
 
 // export default FreeStudent;
-import React, { useEffect, useState } from 'react';
+
+
+  import React, { useEffect, useState } from 'react';
 import { Avatar, Select } from 'antd';
 import axiosInterceptor from '../axios/axiosInterceptor';
 
@@ -130,39 +138,39 @@ const { Option } = Select;
 
 const FreeStudent = () => {
   const [students, setStudents] = useState([]);
-  const [role, setRole] = useState("gust");
-  const [editMode, setEditMode] = useState({ id: null, field: 'role' });
+  const [editMode, setEditMode] = useState({ id: null, field: null });
+  const [userData, setUserData] = useState({ role: "gust", branch: "A" });
   const api = axiosInterceptor();
 
   useEffect(() => {
     fetchUserStudents();
   }, []);
-
   const fetchUserStudents = async () => {
     try {
       const { data } = await api.get("/all-guset");
-      console.log("data users", data);
+      // console.log("data users", data);
       setStudents(data);
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleEdit = (id) => {
-    setEditMode({ id, field: 'role' });
+  const handleEdit = (id, field) => {
+    setEditMode({ id, field });
   };
 
   const handleCancelEdit = () => {
-    setEditMode({ id: null, field: 'role' });
+    setEditMode({ id: null, field: null });
   };
 
-  const handleSaveEdit = async (id, updatedValue) => {
-    try {
-      await api.put(`/change-role/${id}`, {
-        role: updatedValue
-      });
-      setEditMode({ id: null, field: 'role' });
-      fetchUserStudents();
+  const handleSaveEdit = async (id, updatedValueRole, updatedValueBranch) => {
+    const endpoint = `/change-role/${id}`;
+   
+
+try {
+  await api.put(endpoint, { role: updatedValueRole, branch: updatedValueBranch });
+  setEditMode({ id: null, field: null });
+  fetchUserStudents();
     } catch (error) {
       console.error(`Error saving edit for student with id ${id}`, error);
     }
@@ -183,6 +191,7 @@ const FreeStudent = () => {
             <th scope="col">Father</th>
             <th scope="col">Mother</th>
             <th scope="col">ClassRole</th>
+            <th scope="col">Branch</th>
             <th scope="col">Role</th>
             <th scope="col">Actions</th>
           </tr>
@@ -206,8 +215,22 @@ const FreeStudent = () => {
                 {editMode.id === student._id ? (
                   <Select
                     style={{ width: 120 }}
-                    value={role}
-                    onChange={(value) => setRole(value)}
+                    value={editMode.field === 'branch' ? student.branch : userData.branch}
+                    onChange={(value) => setUserData({ ...userData, branch: value })}
+                  >
+                    <Option value="A">A</Option>
+                    <Option value="B">B</Option>
+                  </Select>
+                ) : (
+                  student.branch
+                )}
+              </td>
+              <td>
+                {editMode.id === student._id ? (
+                  <Select
+                    style={{ width: 120 }}
+                    value={userData.role}
+                    onChange={(value) => setUserData({ ...userData, role: value })}
                   >
                     <Option value="student">Student</Option>
                     <Option value="admin">Admin</Option>
@@ -221,7 +244,7 @@ const FreeStudent = () => {
                   <>
                     <button
                       className="btn btn-success mr-2"
-                      onClick={() => handleSaveEdit(student._id, role)}
+                      onClick={() => handleSaveEdit(student._id, userData.role, userData.branch)}
                     >
                       Save
                     </button>
@@ -235,7 +258,7 @@ const FreeStudent = () => {
                 ) : (
                   <button
                     className="btn btn-primary mr-2"
-                    onClick={() => handleEdit(student._id)}
+                    onClick={() => handleEdit(student._id, 'role')}
                   >
                     Edit Role
                   </button>

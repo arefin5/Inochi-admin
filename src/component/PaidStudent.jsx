@@ -14,10 +14,10 @@ const PaidStudent = () => {
 
   const fetchUserStudents = async () => {
     try {
-      const { data } = await api.get("/all-student");
-      console.log("data users", data.allUser);
+      const { data } = await api.get("/all-students");
+      // console.log("data users", data);
 
-      setStudents(data.allUser );
+      setStudents(data );
     } catch (err) {
       console.error(err);
     }
@@ -68,7 +68,7 @@ const PaidStudent = () => {
             <th scope="col">ClassRole</th>
             <th scope="col">Role</th>
 
-            <th scope="col">Actions</th>
+            {/* <th scope="col">Actions</th> */}
           </tr>
         </thead>
         <tbody>
@@ -85,10 +85,11 @@ const PaidStudent = () => {
               </td>
               <td>{student.father}</td>
               <td>{student.mother}</td>
+              <td>{student.rool}</td>
+              <td>{student.role}</td>
 
 
-
-
+{/* 
               <td>
                 {editMode === student._id ? (
                   <input
@@ -142,7 +143,7 @@ const PaidStudent = () => {
                     Edit
                   </button>
                 )}
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>

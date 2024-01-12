@@ -67,7 +67,7 @@ const StudentList = () => {
             <th scope="col">ClassRole</th>
             <th scope="col">Role</th>
 
-            <th scope="col">Actions</th>
+            {/* <th scope="col">Actions</th> */}
           </tr>
         </thead>
         <tbody>
@@ -84,11 +84,13 @@ const StudentList = () => {
               </td>
               <td>{student.father}</td>
               <td>{student.mother}</td>
+              <td>{student.rool}</td>
+              <td>{student.role}</td>
 
 
 
 
-              <td>
+              {/* <td>
                 {editMode === student._id ? (
                   <input
                     type="text"
@@ -140,8 +142,8 @@ const StudentList = () => {
                   >
                     Edit
                   </button>
-                )}
-              </td>
+                )} */}
+              {/* </td> */}
             </tr>
           ))}
         </tbody>

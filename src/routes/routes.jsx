@@ -13,6 +13,7 @@ import CreateCarusel from "../pages/CreateCarusel";
 import CreateService from "../pages/CreateService"
 import Cert from '../pages/Cert';
 import Account from '../pages/Account';
+import Branch from '../pages/Branch';
 // Higher-order component for private routes
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
@@ -32,7 +33,10 @@ const routesConfig = [
       {
         path:"/team-create",
         element: <PrivateRoute element={<TeamCreate />} />,
-
+      },
+      {
+        path:"/branch",
+        element: <PrivateRoute element={<Branch />} />,
       },
       {
         path:"/accounts",
