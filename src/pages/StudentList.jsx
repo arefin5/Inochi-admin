@@ -14,7 +14,7 @@ const StudentList = () => {
   const fetchUserStudents = async () => {
     try {
       const { data } = await api.get("/all-student");
-      console.log("data users", data.allUser);
+      // console.log("data users", data.allUser);
 
       setStudents(data.allUser);
     } catch (err) {
