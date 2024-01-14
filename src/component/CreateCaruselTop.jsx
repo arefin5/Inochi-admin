@@ -21,6 +21,7 @@ const CreateCaruselTop = () => {
         try {
             const response = await api.post("/upload-image-file", formData);
             if (response && response.data && response.data) {
+                console.log(response.data)
                 setImage({
                     url: response.data.url,
                     public_id: response.data.public_id,

@@ -81,7 +81,7 @@ const TeamCreate = () => {
     return (
         <div className="p-4 w-100 d-flex justify-content-center">
             <div className="w-100 d-flex flex-column align-items-center">
-                <h3 className="text-center">Create a Team Member</h3>
+                <h3 className="text-center">Create a Season</h3>
                 <div className="w-75">
                     <div className="mb-3">
                         <label className="form-label">Name</label>

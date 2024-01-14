@@ -14,6 +14,7 @@ import CreateService from "../pages/CreateService"
 import Cert from '../pages/Cert';
 import Account from '../pages/Account';
 import Branch from '../pages/Branch';
+import UpdateSeson from "../pages/UpdateSeson"
 // Higher-order component for private routes
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
@@ -41,6 +42,11 @@ const routesConfig = [
       {
         path:"/accounts",
         element: <PrivateRoute element={<Account />} />,
+
+      },
+      {
+        path:"/update-session",
+        element: <PrivateRoute element={<UpdateSeson />} />,
 
       },
       {

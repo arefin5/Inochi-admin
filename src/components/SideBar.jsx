@@ -15,7 +15,6 @@ const SideBar = () => {
       path: "/create-blog",
     },
     {      name: "Account",
-
       path:"/accounts",
 
     },
