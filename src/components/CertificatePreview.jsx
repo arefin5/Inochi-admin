@@ -1,20 +1,38 @@
 import React from 'react';
 import html2pdf from 'html2pdf.js';
-import "./certificate.css";
+import './certificate.css';
 
-const CertificatePreview = ({ recipientName }) => {
+const CertificatePreview = ({ recipientName,
+   courseName,
+    completionDate,
+    referanceof,
+    studentId ,
+    startDate,
+    endDate,
+    levelOfLanguageLearning,
+    referenceBook,
+    totalNumberOfClasses,
+    totalNumberOfClassesPerDay,
+    totalDurationOfClassPerWeek,
+    classTime,
+    applicantAttendanceRate,
+    classTestParticipationRate,
+    listening,
+    speaking,
+    reading,
+    writing,
+
+ }) => {
   const handleDownload = () => {
     const containerElement = document.getElementById('certificate-container');
 
     html2pdf(containerElement, {
-      margin: 10,
       filename: 'certificate.pdf',
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 1 }, // Set scale to 1 to avoid scaling
+      html2canvas: { scale: 1.5 }, // Adjust the scale as needed
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      output: 'blob', // Use 'blob' output to ensure the full-size image is included
-    })
-    .then((pdf) => {
+      output: 'blob',
+    }).then((pdf) => {
       const blob = new Blob([pdf], { type: 'application/pdf' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
@@ -28,12 +46,28 @@ const CertificatePreview = ({ recipientName }) => {
       <div
         id="certificate-container"
         className="certificate-container"
-        style={{ height: '1500px', width: '1500px' }}
+        style={{ height: '297mm', width: '210mm' }}
       >
-        <h2>Certificate of Achievement</h2>
-        <p>This is to certify that</p>
-        <p>{recipientName}</p>
-        <p>has successfully completed the course.</p>
+        <div className="text-overlay">
+          <p className=''>{recipientName}</p>
+          <p className='courseName'>{courseName}</p>
+          <p className='completionDate'>{completionDate}</p>
+          <p>{studentId}</p>
+          <p>{startDate}</p>
+          <p> </p>
+          <p>{endDate}</p>
+          <p>{levelOfLanguageLearning}</p>
+          <p>{totalNumberOfClasses}</p>
+          <p>{totalNumberOfClassesPerDay}</p>
+          <p>{totalDurationOfClassPerWeek}</p>
+          <p>{classTime}</p>
+          <p>{applicantAttendanceRate}</p>
+          <p>{classTestParticipationRate}</p>
+          <p>{listening}</p>
+          <p>{speaking}</p>
+          <p>{reading}</p>
+          <p>{writing}</p>
+        </div>
       </div>
       <button onClick={handleDownload}>Download as PDF</button>
     </>

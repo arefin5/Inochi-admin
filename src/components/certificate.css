@@ -1,17 +1,16 @@
-.certificate-container {
+ .certificate-container {
     background-image: url("/public/certificate.png");
     background-repeat: no-repeat;
-   
-}
-image{
-    height: 40px !important;
-    width: 50px  !important;
-}
-
-
-.te{
-
-
-    height: 300px;
-    width: 300px;
+    background-size: cover;  
+    background-position: center center;
+    position: relative;
+} 
+  .text-overlay {
+    position: absolute;
+    top: 29%;
+    left: 42%;
+    /* transform: translate(-50%, -50%); */
+    color: black;
+    text-align: center;
+    line-height: 1.2;
 }
