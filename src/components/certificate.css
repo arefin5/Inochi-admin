@@ -7,10 +7,95 @@
 } 
   .text-overlay {
     position: absolute;
-    top: 29%;
     left: 42%;
-    /* transform: translate(-50%, -50%); */
     color: black;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.5;
 }
+.stname{
+  top: 29%;
+
+}
+.stId {
+  top: 32%;
+}
+.std{
+  top: 35%;
+ 
+}
+.eId{
+  top: 38%;
+ 
+}
+.level{
+  top: 41%;
+ 
+}
+.ncl4{
+  top:45% ;
+}
+.level1{
+  top: 48%;
+ 
+}
+
+.level2{
+  top: 51%;
+ 
+}.level3{
+  top: 54%;
+ 
+}.level4{
+  top: 57%;
+ 
+}.level5{
+  top: 60%;
+}
+.level6{
+  top: 63%;
+}
+.dateandref {
+  position: absolute;
+  top: 19%;
+  left: 78%;
+  color: black;
+  text-align: center;
+}
+.reFright {
+  position: absolute;
+  top: 19%;
+  right: 78%;
+  color: black;
+  text-align: center;
+}
+.skil-overley{
+  position: absolute;
+  bottom: 25%;
+  right: 78%;
+  color: black;
+  text-align: center;
+}
+.skil-overleytwo{
+
+   position: absolute;
+   bottom: 25%;
+   right: 60%;
+   color: black;
+   text-align: center;
+ }
+ .skil-overleythr{
+   position: absolute;
+   bottom: 25%;
+   right: 40%;
+   color: black;
+   text-align: center;
+ }
+ .skil-overleyfour{
+
+  /* text-align: left; */
+   position: absolute;
+   bottom: 25%;
+   right: 22%;
+   color: black;
+   text-align: center;
+ }

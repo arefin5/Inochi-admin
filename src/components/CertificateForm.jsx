@@ -315,7 +315,7 @@ const CertificateForm = ({ onGenerate }) => {
         value={formData.levelOfLanguageLearning}
         onChange={handleChange}
       /><br />
-      <label>Reference Book:</label>
+      <label>Total Houre:</label>
       <input
         type="text"
         name="referenceBook"
