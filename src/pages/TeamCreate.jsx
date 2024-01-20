@@ -12,6 +12,15 @@ const TeamCreate = () => {
     const [id, setId] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [facebook,setFacebook]=useState("");
+    const [twiter,setTwiter]=useState("");
+    const [youtube,setyoutube]=useState("");
+    const [linkdin,setLinkdin]=useState("");
+    const [email,setEmail]=useState("");
+    const [position,setPosition]=useState(0);
+    
+
+
     const api = axiosInterceptor();
     const [teams, setTeams] = useState([]);
 
@@ -45,7 +54,13 @@ const TeamCreate = () => {
             const { data } = await api.post("/team-create", {
                 image,
                 name,
-                designation
+                designation,
+                facebook,
+                twiter,
+                linkdin,
+                youtube,
+                position,
+                email
             });
             setSuccessMessage("Team Member created successfully!");
             setErrorMessage(''); // Clear any previous error message
@@ -54,9 +69,9 @@ const TeamCreate = () => {
                 setdesignation(' ');
                 setSuccessMessage(' ');
                 setErrorMessage(' ');
-              setImage(' ')
+                setImage(' ')
                 await fetchTeam();
-              
+
             }
 
         } catch (err) {
@@ -73,7 +88,10 @@ const TeamCreate = () => {
     const fetchTeam = async () => {
         try {
             const { data } = await api.get("/team-member");
-            setTeams(data.team);
+            const sortedTeams = data.team.sort((a, b) => a.position - b.position);
+             setTeams(sortedTeams);
+            // setTeams(data.team);
+            console.log(data.team)
         } catch (err) {
             console.log(err);
         }
@@ -94,6 +112,66 @@ const TeamCreate = () => {
                         />
                     </div>
                     <div className="mb-3">
+                        <label className="form-label">facebook</label>
+                        <input
+                            className="form-control w-100"
+                            type="text"
+                            value={facebook}
+                            placeholder="Facebook"
+                            onChange={(e) => setFacebook(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">twiter</label>
+                        <input
+                            className="form-control w-100"
+                            type="text"
+                            value={twiter}
+                            placeholder="twiter"
+                            onChange={(e) => setTwiter(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Youtube</label>
+                        <input
+                            className="form-control w-100"
+                            type="text"
+                            value={youtube}
+                            placeholder="Youtube"
+                            onChange={(e) => setyoutube(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">linkdin</label>
+                        <input
+                            className="form-control w-100"
+                            type="text"
+                            value={linkdin}
+                            placeholder="linkdin"
+                            onChange={(e) => setLinkdin(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Email</label>
+                        <input
+                            className="form-control w-100"
+                            type="text"
+                            value={email}
+                            placeholder="Email"
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">position set</label>
+                        <input
+                            className="form-control w-100"
+                            type="number"
+                            value={position}
+                            placeholder="set position"
+                            onChange={(e) => setPosition(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
                         <label className="form-label">Designation</label>
                         <input
                             className="form-control w-100"
@@ -105,20 +183,20 @@ const TeamCreate = () => {
                     </div>
                     <div className="mb-3">
 
-                    {/*  */}
-                     {/* upload image */}
-            
-                    {/*  */}
+                        {/*  */}
+                        {/* upload image */}
+
+                        {/*  */}
                         <label className="form-label">
-                        {/*  */}
-                        {image && image.url ? (
-              <Avatar size={30} src={image.url} className="mt-1" />
-            ) : uploading ? (
-              <LoadingOutlined className="mt-2" />
-            ) : (
-              <CameraOutlined className="mt-2" />
-            )}
-                        {/*  */}
+                            {/*  */}
+                            {image && image.url ? (
+                                <Avatar size={30} src={image.url} className="mt-1" />
+                            ) : uploading ? (
+                                <LoadingOutlined className="mt-2" />
+                            ) : (
+                                <CameraOutlined className="mt-2" />
+                            )}
+                            {/*  */}
                             Image
                         </label>
                         <input

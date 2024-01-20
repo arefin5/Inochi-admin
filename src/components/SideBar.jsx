@@ -18,18 +18,15 @@ const SideBar = () => {
       path:"/accounts",
 
     },
-    {
-      name: "Address",
-      path: "/address",
-    },
-    {
-      name: "Documentation",
-      path: "/documentation",
-    },
-    {
-      name: "Create- Quistion",
-      path: "/create-question",
-    },
+    
+    // {
+    //   name: "Documentation",
+    //   path: "/documentation",
+    // },
+    // {
+    //   name: "Create- Quistion",
+    //   path: "/create-question",
+    // },
     {
       name: "Branch",
       path: "/branch",
@@ -39,8 +36,8 @@ const SideBar = () => {
       path: "/create-video",
     },
     {
-      name: "Tuition fee",
-      path: "/tuition-fee",
+      name: " Create Certificate",
+      path: "/create-certificate",
     },
     {
       name: "Update session",

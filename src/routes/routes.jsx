@@ -16,6 +16,7 @@ import Account from '../pages/Account';
 import Branch from '../pages/Branch';
 import UpdateSeson from "../pages/UpdateSeson"
 import PlayListAdd from "../pages/PlaylistAdd"
+import Certificate from '../pages/Cretificate';
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
   return state.isAuthenticated ? element : <Navigate to="/login" replace />;
@@ -58,6 +59,12 @@ const routesConfig = [
         element: <PrivateRoute element={<PlayListAdd/>} />,
 
       },
+      {
+        path:"/create-certificate",
+        element: <PrivateRoute element={<Certificate/>} />,
+
+      },
+      
       {
         path:"/create-service",
         element:<PrivateRoute element={<CreateService />} />

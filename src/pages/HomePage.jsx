@@ -1,28 +1,38 @@
-
-
 import React, { useState } from 'react';
+import FreeStudent from '../component/FreeStudent'; // Import your FreeStudent component
+import PaidStudent from '../component/PaidStudent'; // Import your PaidStudent component
+import BranchA from '../component/BranchA';
+import BranchB from '../component/BranchB';
 
-import CertificateForm from '../components/CertificateForm';
-import CertificatePreview from '../components/CertificatePreview';
-import CertificatePreviewFirst from '../components/CertificatePreviewFirst';
-const Home = () => {
-  const [certificateData, setCertificateData] = useState(null);
+const Account = () => {
+    const [selectedOption, setSelectedOption] = useState(null);
 
-  const handleGenerate = (formData) => {
-    setCertificateData(formData);
-  };
+    const handleButtonClick = (option) => {
+        setSelectedOption(option);
+    };
 
-  return (
-    <div className="d-1">
-      <CertificateForm onGenerate={handleGenerate} />
-      {certificateData && 
-      <>
-      <CertificatePreview {...certificateData} />
-      <CertificatePreviewFirst {...certificateData}/>
-      </>
-      }
-    </div>
-  );
-};
+    return (
+        <div>
+            <h1 className="text-center">Account</h1>
+            <div className="text-center">
+                <button
+                    className="btn btn-primary mr-2"
+                    onClick={() => handleButtonClick('paid')}
+                >
+                    Branch A
+                </button>
+                <button
+                    className="btn btn-success"
+                    onClick={() => handleButtonClick('free')}
+                >
+                                        Branch B
+                </button>
+            </div>
 
-export default Home;
+            {selectedOption === 'paid' && <BranchA />}
+            {selectedOption === 'free' && <BranchB />}
+        </div>
+    );
+}
+
+export default Account;

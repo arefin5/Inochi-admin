@@ -13,7 +13,6 @@ const PlaylistVideos = ({ Id }) => {
     setVideoId(videoId);
   };
   useEffect(() => {
-    // console.log('Selected Video IDs changed:', selectedVideoId);
   }, [selectedVideoId]);
   return (
     <div>

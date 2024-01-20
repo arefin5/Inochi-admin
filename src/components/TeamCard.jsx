@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosInterceptor from '../axios/axiosInterceptor';
 import { useNavigate } from 'react-router-dom';
-
+import { FacebookOutlined, GoogleOutlined, LinkedinOutlined, TwitterOutlined, YoutubeOutlined } from '@ant-design/icons';
 const TeamCard = ({ data }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate();
@@ -11,8 +11,8 @@ const TeamCard = ({ data }) => {
     // Use the state from useAuth to determine authentication status
     navigate('/team-create');
   }, [navigate]);
-// console.log(data)
- 
+  // console.log(data)
+
 
   const handleDelete = async () => {
     // Show confirmation dialog
@@ -35,7 +35,7 @@ const TeamCard = ({ data }) => {
       setShowConfirmation(false);
     }
   };
-  
+
 
   const cancelDelete = () => {
     // Hide the confirmation dialog
@@ -44,7 +44,7 @@ const TeamCard = ({ data }) => {
 
   return (
     <div className="my-5">
-     {showConfirmation && (
+      {showConfirmation && (
         <div className="confirmation-dialog">
           <p>Are you sure you want to delete?</p>
           <button className="btn btn-danger" onClick={confirmDelete}>
@@ -60,23 +60,72 @@ const TeamCard = ({ data }) => {
           <tr>
             <th scope="col">Image</th>
             <th scope="col">Name</th>
-            <th scope="col">Designation</th>
+            <th scope="col">position</th>
+
+
+            <th scope="col">Designation
+
+            </th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-            {
-            data.image ? (<>
-              <img src={data.image.url} alt="Team Member" width={50} height={50} />
+              {
+                data.image ? (<>
+                  <img src={data.image.url} alt="Team Member" width={50} height={50} />
 
-            </>):null
-            }
-              
+                </>) : null
+              }
+
             </td>
             <td>{data.name}</td>
-            <td>{data.designation}</td>
+            <td>{data.position} </td>
+
+            <td>{data.designation} <br />
+              {data.twiter ? (
+                <a href={data.twiter}>        
+                    <TwitterOutlined />
+                </a>
+              ) : (
+                null)}
+              {data.facebook ? (
+                <a href={data.facebook}>
+                  <FacebookOutlined />
+                </a>
+              ) : (
+                null
+              )}
+              {data.email ? (
+                <a href={data.email}>
+                  <GoogleOutlined />
+
+                </a>
+              ) : (
+                null
+              )}
+
+
+
+
+              {data.linkdin ? (
+                <a href={data.linkdin}>
+                  <LinkedinOutlined />
+
+                </a>
+              ) : (
+                null
+              )}
+              {data.youtube ? (
+                <a href={data.youtube}>
+                  <YoutubeOutlined />
+
+                </a>
+              ) : (
+                null
+              )}
+            </td>
             <td>
               <button className="btn btn-danger btn-sm" onClick={handleDelete}>
                 Delete
@@ -86,7 +135,7 @@ const TeamCard = ({ data }) => {
         </tbody>
       </table>
 
-     
+
     </div>
   );
 };
