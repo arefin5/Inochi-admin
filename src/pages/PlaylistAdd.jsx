@@ -15,7 +15,6 @@ const PlayListAdd = () => {
     const fetchUserPosts = async () => {
         try {
             const response = await api.get("/video-playlist");
-            // console.log(response.data.video)
             setPosts(response.data.video);
         } catch (err) {
             console.log(err);
@@ -39,7 +38,7 @@ const PlayListAdd = () => {
           {/* Left Column: Video */}
           {selectedVideoId && <YouTubeSingleVideo videoId={selectedVideoId} />}
         </div>
-        <div className="col-md-4">
+        <div className="col-md-7" style={{margin:"0px, auto",textAlignLast:"end"}}>
           {/* Right Column: Playlist */}
           {posts.map((item, index) => (
             <div key={index} className="">

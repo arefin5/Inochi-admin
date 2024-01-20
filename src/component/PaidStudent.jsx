@@ -1,4 +1,3 @@
-// /all-student
 
 import React, { useEffect, useState } from 'react';
 import axiosInterceptor from '../axios/axiosInterceptor';
