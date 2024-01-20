@@ -15,10 +15,9 @@ import Cert from '../pages/Cert';
 import Account from '../pages/Account';
 import Branch from '../pages/Branch';
 import UpdateSeson from "../pages/UpdateSeson"
-// Higher-order component for private routes
+import PlayListAdd from "../pages/PlaylistAdd"
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
-
   return state.isAuthenticated ? element : <Navigate to="/login" replace />;
 };
 
@@ -55,15 +54,20 @@ const routesConfig = [
 
       },
       {
+        path:"/create-video",
+        element: <PrivateRoute element={<PlayListAdd/>} />,
+
+      },
+      {
         path:"/create-service",
         element:<PrivateRoute element={<CreateService />} />
       },
 
-      {
-        path:"/create-question",
-        element: <PrivateRoute element={<CreateQuestion />} />,
+      // {
+      //   path:"/create-question",
+      //   element: <PrivateRoute element={<CreateQuestion />} />,
 
-      },
+      // },
       {
         path: '/students',
         element: <PrivateRoute element={<StudentList />} />,
@@ -88,10 +92,10 @@ const routesConfig = [
     path: '/login',
     element: <LoginComponent />,
   },
-  {
-    path: '/cert',
-    element: <Cert />,
-  },
+  // {
+  //   path: '/cert',
+  //   element: <PlaylistVideos />,
+  // },
 ];
 
 const routes = createBrowserRouter(routesConfig);

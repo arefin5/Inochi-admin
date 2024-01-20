@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import CertificateForm from '../components/CertificateForm';
 import CertificatePreview from '../components/CertificatePreview';
+import CertificatePreviewFirst from '../components/CertificatePreviewFirst';
 const Home = () => {
   const [certificateData, setCertificateData] = useState(null);
 
@@ -14,7 +15,12 @@ const Home = () => {
   return (
     <div className="d-1">
       <CertificateForm onGenerate={handleGenerate} />
-      {certificateData && <CertificatePreview {...certificateData} />}
+      {certificateData && 
+      <>
+      <CertificatePreview {...certificateData} />
+      <CertificatePreviewFirst {...certificateData}/>
+      </>
+      }
     </div>
   );
 };

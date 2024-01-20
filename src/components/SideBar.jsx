@@ -35,8 +35,8 @@ const SideBar = () => {
       path: "/branch",
     },
     {
-      name: "Video course",
-      path: "/video-course",
+      name: "Video Create",
+      path: "/create-video",
     },
     {
       name: "Tuition fee",

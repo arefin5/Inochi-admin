@@ -1,0 +1,28 @@
+.certificate-containerf {
+    background-image: url("/public/f.png");
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+    position: relative;
+} 
+  .text-overlay {
+    position: absolute;
+    left: 42%;
+    color: black;
+    text-align: center;
+    line-height: 1.5;
+}
+.dateandreff {
+    position: absolute;
+    top: 14%;
+    left: 85%;
+    color: black;
+    text-align: center;
+}
+.reFrightf {
+    position: absolute;
+    top: 14%;
+    right: 78%;
+    color: black;
+    text-align: center;
+}
