@@ -23,10 +23,10 @@ const SideBar = () => {
     //   name: "Documentation",
     //   path: "/documentation",
     // },
-    // {
-    //   name: "Create- Quistion",
-    //   path: "/create-question",
-    // },
+    {
+      name: "Quistion",
+      path: "/create-question",
+    },
     {
       name: "Brand Partner",
       path: "/create-brand",

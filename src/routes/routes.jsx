@@ -76,11 +76,11 @@ const routesConfig = [
         element:<PrivateRoute element={<CreateService />} />
       },
 
-      // {
-      //   path:"/create-question",
-      //   element: <PrivateRoute element={<CreateQuestion />} />,
+      {
+        path:"/create-question",
+        element: <PrivateRoute element={<CreateQuestion />} />,
 
-      // },
+      },
       {
         path: '/students',
         element: <PrivateRoute element={<StudentList />} />,
