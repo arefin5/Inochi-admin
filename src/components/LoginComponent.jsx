@@ -41,8 +41,8 @@ const LoginComponent = () => {
   }, [state, navigate]);
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className='text-center'>
+      <h1>Admin Login</h1>
       {loginError && <p style={{ color: 'red' }}>{loginError}</p>}
       <div>
         <label htmlFor="username">Username:</label>
@@ -62,7 +62,7 @@ const LoginComponent = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button onClick={handleLogin}>Login</button>
+      <button className='btn btn-success' onClick={handleLogin}>Login</button>
     </div>
   );
 };

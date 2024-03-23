@@ -89,7 +89,7 @@
 import React, { useState } from 'react';
 import ImageConverter from './ImageConverter';
 
-import axiosInterceptor  from "../axios/axiosInterceptor.js"
+import axiosInterceptor from "../axios/axiosInterceptor.js"
 const PendingBlogs = ({ data, handleDelete, handleApprove }) => {
   const [storedBase64Data, setStoredBase64Data] = useState('');
   const [selectedTags, setSelectedTags] = useState({
@@ -97,7 +97,7 @@ const PendingBlogs = ({ data, handleDelete, handleApprove }) => {
     study: false,
     service: false,
   });
-const api=axiosInterceptor()
+  const api = axiosInterceptor()
   const handleBase64Data = (data) => {
     setStoredBase64Data(data);
   };
@@ -133,19 +133,24 @@ const api=axiosInterceptor()
 
   return (
     <>
-     
+
       {data ? (
         <div className="my-5">
           <div className="row my-lg-4">
             <div>
               <div className="card shadow rounded">
                 <div className="card-body text-center">
-                  <img
-                    src={data.image.url}
-                    alt="Bootstrap"
-                    width={150}
-                    height={150}
-                  />
+                  {
+                if(data.image.url){
+                    <img
+                      src={data.image.url}
+                      alt="Bootstrap"
+                      width={150}
+                      height={150}
+                    />
+                  }
+              }
+
                   <br />
                   <p className="text-center mb-5">
                     <b> {data.content}</b>

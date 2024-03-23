@@ -14,7 +14,7 @@ const api =axiosInterceptor();
   const fetchUserPosts = async () => {
     try {
       const response = await api.get("/pending-blogs");
-      console.log(response.data.pendingBlogs)
+      // console.log(response.data.pendingBlogs)
       setCaruselData(response.data.pendingBlogs);
     } catch (err) {
       console.log(err);
@@ -35,7 +35,6 @@ const api =axiosInterceptor();
   
   const handleApprove = async (carouselId) => {
     try {
-      // Make a request to approve the carousel with the specified ID
       await api.put(`/aproved-carusel/${carouselId}`);
       // Refresh the carousel data after approval
       fetchUserPosts();
