@@ -140,16 +140,16 @@ const PendingBlogs = ({ data, handleDelete, handleApprove }) => {
             <div>
               <div className="card shadow rounded">
                 <div className="card-body text-center">
-                  {
-                if(data.image.url){
+                  
+                {/* if(data.image.url){
                     <img
                       src={data.image.url}
                       alt="Bootstrap"
                       width={150}
                       height={150}
                     />
-                  }
-              }
+                  } */}
+              
 
                   <br />
                   <p className="text-center mb-5">

@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import CertificateForm from '../components/CertificateForm';
 import CertificatePreview from '../components/CertificatePreview';
 import CertificatePreviewFirst from '../components/CertificatePreviewFirst';
+import CertificatePreviewLast from '../components/CertificatePreviewLast';
 const Certificate = () => {
   const [certificateData, setCertificateData] = useState(null);
 
@@ -18,7 +19,10 @@ const Certificate = () => {
       {certificateData && 
       <>
       <CertificatePreview {...certificateData} />
+      <CertificatePreviewLast {...certificateData} />
+
       <CertificatePreviewFirst {...certificateData}/>
+      
       </>
       }
     </div>

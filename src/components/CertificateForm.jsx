@@ -217,11 +217,18 @@
 // };
 
 // export default CertificateForm;
+// 
+
 import React, { useRef, useState } from 'react';
 
 const CertificateForm = ({ onGenerate }) => {
   const [formData, setFormData] = useState({
     recipientName: '',
+    sl:'',
+    birth:"",
+    grade:"",
+    fatherName:"",
+    motherName:" ",
     courseName: '',
     completionDate: '',
     referanceof: '',
@@ -392,7 +399,42 @@ const CertificateForm = ({ onGenerate }) => {
         value={formData.writing}
         onChange={handleChange}
       /><br />
-
+   
+    <label>sl:</label>
+      <input
+        type="text"
+        name="writing"
+        value={formData.sl}
+        onChange={handleChange}
+      /><br />
+      <label>Date Of Birth :</label>
+      <input
+        type="text"
+        name="writing"
+        value={formData.birth}
+        onChange={handleChange}
+      /><br />
+      <label>Grade:</label>
+      <input
+        type="text"
+        name="writing"
+        value={formData.grade}
+        onChange={handleChange}
+      /><br />
+      <label>fatherName :</label>
+      <input
+        type="text"
+        name="writing"
+        value={formData.fatherName}
+        onChange={handleChange}
+      /><br />
+      <label>motherName:</label>
+      <input
+        type="text"
+        name="writing"
+        value={formData.motherName}
+        onChange={handleChange}
+      /><br />
       <button onClick={handleGenerate}>Generate Certificate</button>
     </div>
   );

@@ -1,5 +1,6 @@
- .certificate-container {
-    background-image: url("/public/certificate.png");
+
+.certificate-container {
+    background-image: url("/public/AcademicCertificate.png");
     background-repeat: no-repeat;
     background-size: cover;  
     background-position: center center;
