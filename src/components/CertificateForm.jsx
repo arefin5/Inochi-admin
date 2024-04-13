@@ -403,35 +403,35 @@ const CertificateForm = ({ onGenerate }) => {
     <label>sl:</label>
       <input
         type="text"
-        name="writing"
+        name="sl"
         value={formData.sl}
         onChange={handleChange}
       /><br />
       <label>Date Of Birth :</label>
       <input
         type="text"
-        name="writing"
+        name="birth"
         value={formData.birth}
         onChange={handleChange}
       /><br />
       <label>Grade:</label>
       <input
         type="text"
-        name="writing"
+        name="grade"
         value={formData.grade}
         onChange={handleChange}
       /><br />
       <label>fatherName :</label>
       <input
         type="text"
-        name="writing"
+        name="fatherName"
         value={formData.fatherName}
         onChange={handleChange}
       /><br />
       <label>motherName:</label>
       <input
         type="text"
-        name="writing"
+        name="motherName"
         value={formData.motherName}
         onChange={handleChange}
       /><br />

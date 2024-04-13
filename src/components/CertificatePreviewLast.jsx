@@ -15,7 +15,7 @@ const CertificatePreviewLast = ({
   motherName,
 }) => {
   const handleDownload = () => {
-    const containerElement = document.getElementById('certificate-container');
+    const containerElement = document.getElementById('certificate-container-last');
 
     html2pdf(containerElement, {
       filename: 'certificate.pdf',
@@ -44,73 +44,22 @@ const CertificatePreviewLast = ({
   return (
     <>
       <div
-        id="certificate-container"
-        className="certificate-container"
-        style={{ height: '297mm', width: '210mm' }}
+        id="certificate-container-last"
+        className="certificate-container-last"
+        // style={{ position: 'relative', backgroundImage: 'url("/public/AcademicCertificate.png")', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
       >
-        <div className='reFright'>
-          <p>
-            {referanceof}
-          </p>
+        <div className='sl' style={{ position: 'absolute', top: '50px', left: '50px' ,zIndex: 1}}>
+          <p>{sl}</p>
         </div>
-        <div className='dateandref'>
-          <p>
-            {currentDate}
-          </p>
-
-        </div>
-      
-        <div className="text-overlay stname">
-          <p className=''>{recipientName}</p>
-        </div>
-        <div className="text-overlay stId ">
-          <p className=''>{studentId}</p>
-        </div>
-        <div className="text-overlay std ">
+        <div className='' style={{ position: 'absolute', top: '100px', left: '50px' }}>
           <p>{startDate}</p>
         </div>
-        <div className="text-overlay eId ">
-          <p>{endDate}</p>
-
-        </div>
-        <div className="text-overlay level ">
-          <p>{levelOfLanguageLearning}</p>
-
-        </div>
-
-        <div className="text-overlay ncl4 ">
-        <p>{totalNumberOfClasses}</p>
-        </div>
-        <div className="text-overlay level1 ">
-        <p>{referenceBook}</p>
-
-        </div>
-        <div className="text-overlay level2 ">
-        <p>{totalNumberOfClassesPerDay}</p>
-
-        </div>
-        <div className="text-overlay level3 ">
-        <p>{totalDurationOfClassPerWeek}</p>
-
-        </div>
-        <div className="text-overlay level4 ">
-        <p>{classTime}</p>
-
-        </div>
-        <div className="text-overlay level5 ">
-        <p>{applicantAttendanceRate}</p>
-
-        </div>
-        <div className="text-overlay level6 ">
-        <p>{classTestParticipationRate}</p>
-
-        </div>
-        {/*  */}
-      
+        {/* Add more divs for other text overlays */}
       </div>
       <button onClick={handleDownload}>Download as PDF</button>
     </>
-  );
+);
+
 };
 
 export default CertificatePreviewLast
