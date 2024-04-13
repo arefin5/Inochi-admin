@@ -6,11 +6,14 @@ const PendingCarusel = ({ data, handleDelete, handleApprove }) => {
 
   // Use let to declare a variable
   let imageUrl = data.image && data.image.url;
+  const isImageDefined = data.image !== undefined;
 
+// console.log(data)
   return (
     <>
-      {imageUrl ? (
+      {isImageDefined &&  (
         <div className="my-5">
+        <h1>Carusel List</h1>
           <div className="row my-lg-4">
             <div>
               <div className="card shadow rounded">
@@ -29,9 +32,7 @@ const PendingCarusel = ({ data, handleDelete, handleApprove }) => {
             </div>
           </div>
         </div>
-      ) : (
-        <></>
-      )}
+      ) }
     </>
   );
 };

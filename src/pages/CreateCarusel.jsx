@@ -15,6 +15,7 @@ const CreateCarusel = () => {
   const fetchUserPosts = async () => {
     try {
       const response = await api.get("/draft-carusel");
+      console.log(response.data)
       setCaruselData(response.data.AllpendingCarusel);
     } catch (err) {
       console.log(err);

@@ -101,7 +101,7 @@ const PendingBlogs = ({ data, handleDelete, handleApprove }) => {
   const handleBase64Data = (data) => {
     setStoredBase64Data(data);
   };
-
+// console.log(data)
   const handleCheckboxChange = (tag) => {
     setSelectedTags({
       ...selectedTags,
@@ -141,14 +141,15 @@ const PendingBlogs = ({ data, handleDelete, handleApprove }) => {
               <div className="card shadow rounded">
                 <div className="card-body text-center">
                   
-                {/* if(data.image.url){
-                    <img
-                      src={data.image.url}
-                      alt="Bootstrap"
-                      width={150}
-                      height={150}
-                    />
-                  } */}
+                {isImageDefined && (
+  <img
+    src={data.image.url}
+    alt="Bootstrap"
+    width={150}
+    height={150}
+  />
+)}
+
               
 
                   <br />

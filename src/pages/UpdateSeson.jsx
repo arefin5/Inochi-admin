@@ -94,7 +94,7 @@ console.log( image,
     return (
         <div className="p-4 w-100 d-flex justify-content-center">
             <div className="w-100 d-flex flex-column align-items-center">
-                <h3 className="text-center">Create a Team Member</h3>
+                <h3 className="text-center">Create a Session</h3>
                 <div className="w-75">
                     <div className="mb-3">
                         <label className="form-label">Title</label>
@@ -180,10 +180,10 @@ console.log( image,
                         {errorMessage && <p style={{ color: 'red' }} >{errorMessage}</p>}
                     </div>
                 </div>
-                <p>Team Member</p>
+                <p>Session Deatails</p>
                 {teams && teams.map((team, index) => (
                     <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
-                        <SeminerCard data={team} />
+                        <SeminerCard data={team} title="Session"/>
                     </div>
                 ))}
             </div>

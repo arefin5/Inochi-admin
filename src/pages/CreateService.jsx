@@ -56,7 +56,7 @@ const handleEdit=async(carouselId)=>{
     <div>
       <h1 className="text-center">Create Service</h1>
       <hr />
-      <CreateServiceTop />
+      {/* <CreateServiceTop /> */}
       <div className="row">
       {
         caruselData ? (
