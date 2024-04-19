@@ -20,8 +20,8 @@ const SideBar = () => {
     },
     
     // {
-    //   name: "Documentation",
-    //   path: "/documentation",
+    //   name: "StudentCertificate",
+    //   path: "/certsec",
     // },
     {
       name: "Quistion",

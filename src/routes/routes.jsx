@@ -18,6 +18,7 @@ import UpdateSeson from "../pages/UpdateSeson"
 import PlayListAdd from "../pages/PlaylistAdd"
 import Certificate from '../pages/Cretificate';
 import CreateBrand from '../pages/CreateBrand';
+import CertificateSecend from '../pages/CertificateSecend';
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
   return state.isAuthenticated ? element : <Navigate to="/login" replace />;
@@ -105,10 +106,10 @@ const routesConfig = [
     path: '/login',
     element: <LoginComponent />,
   },
-  // {
-  //   path: '/cert',
-  //   element: <PlaylistVideos />,
-  // },
+  {
+    path: '/certsec',
+    element: <CertificateSecend />,
+  },
 ];
 
 const routes = createBrowserRouter(routesConfig);

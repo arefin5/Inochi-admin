@@ -78,14 +78,14 @@
 .skil-overleytwo{
 
    position: absolute;
-   bottom: 25%;
+   bottom: 23%;
    right: 60%;
    color: black;
    text-align: center;
  }
  .skil-overleythr{
    position: absolute;
-   bottom: 25%;
+   bottom: 23%;
    right: 40%;
    color: black;
    text-align: center;
@@ -94,7 +94,7 @@
 
   /* text-align: left; */
    position: absolute;
-   bottom: 25%;
+   bottom: 23%;
    right: 22%;
    color: black;
    text-align: center;

@@ -3,24 +3,17 @@ import html2pdf from 'html2pdf.js';
 import './certificateF.css';
 
 const CertificatePreviewFirst = ({ recipientName,
-  courseName,
-  completionDate,
-  referanceof,
   studentId,
   startDate,
   endDate,
-  levelOfLanguageLearning,
-  totalNumberOfClasses,
-  totalNumberOfClassesPerDay,
-  totalDurationOfClassPerWeek,
-  classTime,
+  sl,
   referenceBook,
-  applicantAttendanceRate,
-  classTestParticipationRate,
-  listening,
-  speaking,
-  reading,
-  writing,
+    birth,
+    grade,
+    fatherName,
+    motherName,
+    
+    
 
 }) => {
   const handleDownload = () => {
@@ -57,20 +50,72 @@ const CertificatePreviewFirst = ({ recipientName,
         className="certificate-containerf"
         style={{ height: '297mm', width: '210mm' }}
       >
-        <div className='reFrightf'>
+        <div className='sl'>
           <p>
-            {referanceof}
+            {sl}
           </p>
         </div>
-        <div className='dateandreff'>
+        {/* <div className='dateandreff'>
           <p>
-            {currentDate}
+           {sl}
           </p>
-
+        </div> */}
+        <div className='nameOfStd'>
+          <p>
+           {recipientName}
+          </p>
         </div>
-      
-        
-      </div>
+        {/* birth */}
+        <div className='birth'>
+          <p>
+           {birth}
+          </p>
+        </div>
+        {/*  */}
+        <div className='fname'>
+          <p>
+           {fatherName}
+          </p>
+        </div>
+        {/*  */}
+        <div className='mname'>
+          <p>
+           {motherName}
+          </p>
+        </div>
+        {/* stid */}
+        <div className='stid'>
+          <p>
+           {studentId}
+          </p>
+        </div>
+         <div className='stid'>
+          <p>
+           {studentId}
+          </p>
+        </div>
+        <div className='comHour'>
+          <p>
+           {referenceBook}
+          </p>
+        </div>
+<div className='grade'>
+          <p>
+           {grade}
+          </p>
+        </div>
+        {/* startD */}
+        <div className='startDateS'>
+          <p>
+           {startDate}
+          </p>
+        </div>
+<div className='endDates'>
+          <p>
+           {endDate}
+          </p>
+        </div>
+              </div>
       <button onClick={handleDownload}>Download as PDF</button>
     </>
   );

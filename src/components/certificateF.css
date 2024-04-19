@@ -1,10 +1,15 @@
+
 .certificate-containerf {
-    background-image: url("/public/f.png");
-    background-repeat: no-repeat;
-    background-size: cover;  
-    background-position: center center;
+    background-image: url(/public/AcademicCertificate.png);
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    /* background-position: center center; */
     position: relative;
-} 
+    width: 795px !important;
+    height: 566px !important;
+    /* background-color: darkblue !important; */
+}
+
   .text-overlay {
     position: absolute;
     left: 42%;
@@ -12,17 +17,84 @@
     text-align: center;
     line-height: 1.5;
 }
-.dateandreff {
+/* .sl{
     position: absolute;
     top: 14%;
     left: 85%;
     color: black;
     text-align: center;
-}
-.reFrightf {
+} */
+.sl {
     position: absolute;
-    top: 14%;
-    right: 76%;
+    top: 24%;
+    left: 22%;
+    color: black;
+    text-align: center;
+}
+
+.nameOfStd{
+    position: absolute;
+    top: 32%;
+    left: 27%;
+    color: black;
+    text-align: center;
+}
+.birth{
+    position: absolute;
+    top: 33%;
+    left: 72%;
+    color: black;
+    text-align: center;
+}
+.fname{
+    position: absolute;
+    top: 38%;
+    left: 39%;
+    color: black;
+    text-align: center;
+}
+
+.mname{
+    position: absolute;
+    top: 38%;
+    left: 72%;
+    color: black;
+    text-align: center;
+}
+.stid{
+    position: absolute;
+    top: 43%;
+    left: 39%;
+    color: black;
+    text-align: center;
+}
+
+.comHour{
+    position: absolute;
+    top: 48%;
+    left: 65%;
+    color: black;
+    text-align: center;
+}
+.grade{
+    position: absolute;
+    top: 55%;
+    left: 53%;
+    color: black;
+    text-align: center;
+}
+
+.startDateS{
+    position: absolute;
+    top: 61%;
+    left: 31%;
+    color: black;
+    text-align: center;
+}
+.endDates{
+    position: absolute;
+    top: 61%;
+    left: 44%;
     color: black;
     text-align: center;
 }

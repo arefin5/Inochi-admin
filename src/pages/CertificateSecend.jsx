@@ -7,7 +7,7 @@ import CertificatePreview from '../components/CertificatePreview';
 import CertificatePreviewFirst from '../components/CertificatePreviewFirst';
 // import CertificatePreviewLast from '../components/CertificatePreviewLast';
 // import CertificeteLast from './CertificeteLast';
-const Certificate = () => {
+const CertificateSecend = () => {
   const [certificateData, setCertificateData] = useState(null);
 
   const handleGenerate = (formData) => {
@@ -19,14 +19,15 @@ const Certificate = () => {
       <CertificateForm onGenerate={handleGenerate} />
       {certificateData && 
       <>
-      <CertificatePreview {...certificateData} />
-      <CertificatePreviewFirst {...certificateData}/>
+      {/* <CertificatePreview {...certificateData} />
+       */}
       {/* <CertificatePreviewLast {...certificateData} /> */}
-
+      <CertificatePreviewFirst {...certificateData}/>
       </>
       }
     </div>
   );
 };
 
-export default Certificate;
+
+export default CertificateSecend;

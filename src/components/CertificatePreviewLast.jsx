@@ -38,15 +38,11 @@ const CertificatePreviewLast = ({
   };
   const currentDate = formatDate(new Date());
 
-  // ...
-
-
   return (
     <>
       <div
         id="certificate-container-last"
-        className="certificate-container-last"
-        // style={{ position: 'relative', backgroundImage: 'url("/public/AcademicCertificate.png")', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
+        className="last-cer"
       >
         <div className='sl' style={{ position: 'absolute', top: '50px', left: '50px' ,zIndex: 1}}>
           <p>{sl}</p>
@@ -54,7 +50,6 @@ const CertificatePreviewLast = ({
         <div className='' style={{ position: 'absolute', top: '100px', left: '50px' }}>
           <p>{startDate}</p>
         </div>
-        {/* Add more divs for other text overlays */}
       </div>
       <button onClick={handleDownload}>Download as PDF</button>
     </>
@@ -63,3 +58,11 @@ const CertificatePreviewLast = ({
 };
 
 export default CertificatePreviewLast
+
+
+
+
+
+
+
+
