@@ -90,61 +90,7 @@ const BranchA = () => {
               <td>{student.role}</td>
 
 
-{/* 
-              <td>
-                {editMode === student._id ? (
-                  <input
-                    type="text"
-                    value={student.rool} // Replace with the corresponding field
-                    onChange={(e) => {
-                      // Handle input changes during edit mode
-                      // Update the corresponding state accordingly
-                    }}
-                  />
-                ) : (
-                  student.rool
-                )}
-              </td>
-              <td>
-                {editMode === student._id ? (
-                  <input
-                    type="text"
-                    value={student.education} // Replace with the corresponding field
-                    onChange={(e) => {
-                      // Handle input changes during edit mode
-                      // Update the corresponding state accordingly
-                    }}
-                  />
-                ) : (
-                  student.education
-                )}
-              </td>
-              <td>{student.role}</td>
-              <td>
-                {editMode === student._id ? (
-                  <>
-                    <button
-                      className="btn btn-success mr-2"
-                      onClick={() => handleSaveEdit(student._id)}
-                    >
-                      Save
-                    </button>
-                    <button
-                      className="btn btn-secondary"
-                      onClick={handleCancelEdit}
-                    >
-                      Cancel
-                    </button>
-                  </>
-                ) : (
-                  <button
-                    className="btn btn-primary mr-2"
-                    onClick={() => handleEdit(student._id)}
-                  >
-                    Edit
-                  </button>
-                )}
-              </td> */}
+
             </tr>
           ))}
         </tbody>

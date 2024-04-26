@@ -19,6 +19,7 @@ import PlayListAdd from "../pages/PlaylistAdd"
 import Certificate from '../pages/Cretificate';
 import CreateBrand from '../pages/CreateBrand';
 import CertificateSecend from '../pages/CertificateSecend';
+import BookingPage from '../pages/BookingPage';
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
   return state.isAuthenticated ? element : <Navigate to="/login" replace />;
@@ -99,6 +100,21 @@ const routesConfig = [
         path: '/documentation',
         element: <PrivateRoute element={<Documen/>} />,
       },
+      {
+        path:"/semmenr-booklist",
+        element:<PrivateRoute element={<BookingPage/>}/>
+      },
+      // {
+      //   name:"Contact list",
+      //   path:"/contact-list",
+  
+      // },
+      // {
+      //   name:"Subscriber list",
+      //   path:"/subscriber-list",
+  
+      // }
+
       // ... other routes
     ],
   },

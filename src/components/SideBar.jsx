@@ -19,10 +19,10 @@ const SideBar = () => {
 
     },
     
-    // {
-    //   name: "StudentCertificate",
-    //   path: "/certsec",
-    // },
+    {
+      name: "StudentCertificate",
+      path: "/certsec",
+    },
     {
       name: "Quistion",
       path: "/create-question",
@@ -57,6 +57,21 @@ const SideBar = () => {
     {
       name:"Create Carusel",
         path:"/create-crusel",
+    },
+    {
+      name:"BookList",
+      path:"/semmenr-booklist",
+
+    },
+    {
+      name:"Contact list",
+      path:"/contact-list",
+
+    },
+    {
+      name:"Subscriber list",
+      path:"/subscriber-list",
+
     }
   ];
 
