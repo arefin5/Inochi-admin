@@ -1,14 +1,15 @@
 // /all-seminer-booking
 import React from 'react';
 import SeminerBookList from '../component/SemenerBooklist';
+import Subscriberlist from '../component/Subscriberlist';
 
-const BookingPage = () => {
+const Subscriber = () => {
     return (
         <div>
         
-            <SeminerBookList />
+            <Subscriberlist />
         </div>
     );
 }
 
-export default BookingPage;
+export default Subscriber;

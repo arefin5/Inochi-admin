@@ -27,10 +27,10 @@ const SideBar = () => {
       name: "Quistion",
       path: "/create-question",
     },
-    {
-      name: "Brand Partner",
-      path: "/create-brand",
-    },
+    // {
+    //   name: "Brand Partner",
+    //   path: "/create-brand",
+    // },
     {
       name: "Branch",
       path: "/branch",

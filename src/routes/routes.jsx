@@ -20,6 +20,8 @@ import Certificate from '../pages/Cretificate';
 import CreateBrand from '../pages/CreateBrand';
 import CertificateSecend from '../pages/CertificateSecend';
 import BookingPage from '../pages/BookingPage';
+import ContactList from '../pages/ContactList';
+import Subscriber from '../pages/Subscriber';
 const PrivateRoute = ({ element }) => {
   const { state } = useAuth();
   return state.isAuthenticated ? element : <Navigate to="/login" replace />;
@@ -35,51 +37,51 @@ const routesConfig = [
         element: <HomePage />,
       },
       {
-        path:"/team-create",
+        path: "/team-create",
         element: <PrivateRoute element={<TeamCreate />} />,
       },
       {
-        path:"/branch",
+        path: "/branch",
         element: <PrivateRoute element={<Branch />} />,
       },
       {
-        path:"/accounts",
+        path: "/accounts",
         element: <PrivateRoute element={<Account />} />,
 
       },
       {
-        path:"/update-session",
+        path: "/update-session",
         element: <PrivateRoute element={<UpdateSeson />} />,
 
       },
       {
-        path:"/create-crusel",
+        path: "/create-crusel",
         element: <PrivateRoute element={<CreateCarusel />} />,
 
       },
       {
-        path:"/create-video",
-        element: <PrivateRoute element={<PlayListAdd/>} />,
+        path: "/create-video",
+        element: <PrivateRoute element={<PlayListAdd />} />,
 
       },
       {
-        path:"/create-certificate",
-        element: <PrivateRoute element={<Certificate/>} />,
+        path: "/create-certificate",
+        element: <PrivateRoute element={<Certificate />} />,
 
       },
       {
-        path:"/create-brand",
-        element: <PrivateRoute element={<CreateBrand/>} />,
+        path: "/create-brand",
+        element: <PrivateRoute element={<CreateBrand />} />,
 
-      },
-      
-      {
-        path:"/create-service",
-        element:<PrivateRoute element={<CreateService />} />
       },
 
       {
-        path:"/create-question",
+        path: "/create-service",
+        element: <PrivateRoute element={<CreateService />} />
+      },
+
+      {
+        path: "/create-question",
         element: <PrivateRoute element={<CreateQuestion />} />,
 
       },
@@ -98,21 +100,34 @@ const routesConfig = [
 
       {
         path: '/documentation',
-        element: <PrivateRoute element={<Documen/>} />,
+        element: <PrivateRoute element={<Documen />} />,
       },
       {
-        path:"/semmenr-booklist",
-        element:<PrivateRoute element={<BookingPage/>}/>
+        path: "/semmenr-booklist",
+        element: <PrivateRoute element={<BookingPage />} />
+      },
+      {
+        path: "/contact-list",
+        element: <PrivateRoute element={<ContactList />} />
+      },
+      {
+        path: "/subscriber-list",
+        element: <PrivateRoute element={<Subscriber />} />
+      },
+      {
+        path: '/certsec',
+        element: <PrivateRoute element={<CertificateSecend />} />
+
       },
       // {
       //   name:"Contact list",
       //   path:"/contact-list",
-  
+
       // },
       // {
       //   name:"Subscriber list",
       //   path:"/subscriber-list",
-  
+
       // }
 
       // ... other routes
@@ -122,10 +137,7 @@ const routesConfig = [
     path: '/login',
     element: <LoginComponent />,
   },
-  {
-    path: '/certsec',
-    element: <CertificateSecend />,
-  },
+
 ];
 
 const routes = createBrowserRouter(routesConfig);
