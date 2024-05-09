@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginComponent = () => {
   const { login, state } = useAuth();
-  const [phone, setUsername] = useState('');
+  const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState(null);
   const api = axiosInterceptor();
@@ -16,7 +16,7 @@ const LoginComponent = () => {
     console.log(phone,password)
     try {
       const { data } = await api.post('/login', {
-        phone,
+        email,
         password,
       });
 
@@ -47,9 +47,9 @@ const LoginComponent = () => {
       <div>
         <label htmlFor="username">Username:</label>
         <input
-          type="phone"
+          type="name"
           id="username"
-          value={phone}
+          value={email}
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
