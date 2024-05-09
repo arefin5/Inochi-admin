@@ -13,7 +13,7 @@ const LoginComponent = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    console.log(phone,password)
+    
     try {
       const { data } = await api.post('/login', {
         email,
